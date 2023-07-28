@@ -15,7 +15,7 @@ def getItems(request):
 
 @api_view(['POST'])
 def addItem(request):
-    serializer = ItemSerializer(data=request.data, many=True)
+    serializer = ItemSerializer(data=request.data, many=False)
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)
